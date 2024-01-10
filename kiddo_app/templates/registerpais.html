@@ -2,14 +2,17 @@
 
 <body>
     {% block content %}
+    <h2> Carga un nuevo país</h2>
+
     <form action="" method="post">
         <!-- Para proteger la página de falsificaciones de solicitudes entre sitios -->
         {% csrf_token %}
         {{form.as_p}}
     <input type='submit' value='Submit'>
     </form>
+    <h3> Chequea los países registrados</h3>
     <form method='get' action='paises_registrados'>
-        <button type='submit'>Países Registrados</button>
+        <a class="btn btn-primary" href="{% url 'paisesregistrados' %}">Países Registrados</a>
     </form>
     {% endblock %}
 </body>

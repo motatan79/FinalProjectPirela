@@ -46,7 +46,7 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Cuenta creada exitósamente")
-            return redirect("signin")
+            return redirect("registrados")
     else:
         form = RegisterForm()
         user_info = {'form': form}
@@ -93,7 +93,7 @@ def pais(request):
         if form.is_valid():
             form.save()
             messages.success(request, "País creado exitósamente")
-            return redirect("registrarpais")
+            return redirect("paisesregistrados")
     else:
         form = PaisForm()
         user_info = {'form': form}
@@ -106,7 +106,7 @@ def tienda(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Tienda creada exitósamente")
-            return redirect("registrartienda")
+            return redirect("tiendasregistradas")
     else:
         form = TiendaForm()
         user_info = {'form': form}
@@ -118,7 +118,7 @@ def evento(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Evento creado exitósamente")
-            return redirect("registrarevento")
+            return redirect("eventosagendados")
     else:
         form = EventoForm()
         user_info = {'form': form}
