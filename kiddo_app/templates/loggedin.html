@@ -4,19 +4,16 @@
 <body>
     {% block content %}
         <form method="get" action="registrarevento">
-        <button type= 'submit'>Crear Evento</button>
+        <a class="btn btn-primary" href="{% url 'registrarevento' %}">Crear Evento</a>    
         </form>
+        <a> </a>
+        <a> </a>
         <form method="get" action="logout">
-        <button type= 'submit'>Cerrar Sesión</button>
+        <a class="btn btn-primary" href="{% url 'logout' %}">Cerrar Sesión</a> 
         </form>
         <h2>
         <p style="text-align:center;"> Bienvenido {{ username }}!!
         </p>
         </h2> 
-        <div class='container'>
-            <p></p>
-            <a href='#'>Evento Swap</a><br />
-            <a href='#'>Comunidad Swap</a><br />
-        </div>
-    {% endblock %}
+        {% endblock %}
 </body>
