@@ -47,6 +47,15 @@
                     <a class="btn btn-primary" href="signin">Acceder</a>
                 </div>
             </div>
+            <h5>Verifica si tu tienda Ya es parte de nuestra comunidad!!
+            </h5>
+       
+            <form action='buscarTienda' method='POST'>
+                {% csrf_token %}
+                <input type= 'string' name = 'nombre_tienda'>
+                <input type= 'submit' value= 'Buscar Tienda'>
+            </form>
+
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-8 text-center">
                 <div class="card-body"><p class="text-white m-0">Somos una app de intercambio de ropa de segunda mano para niños,

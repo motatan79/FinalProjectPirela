@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+    
+    
+    <h1>Verificación de Tienda</h1>
+    <h2>Nombre de la tienda: {{ nombre_tienda }}</h2>
+    <h2>Está ubicada en la ciudad de : {{ ciudad }}</h2>
+    <h3>La tienda se identifica como : {{ descripcion }}</h3>
+    
+
+    {% if existe_tienda %}
+        <p>La tienda está en la base de datos.</p>
+    {% else %}
+        <p>La tienda no está en la base de datos.</p>
+    {% endif %}
+<a class="btn btn-primary" href="{% url 'app_homepage' %}">Atrás</a>
+{% endblock %}
+</body>
