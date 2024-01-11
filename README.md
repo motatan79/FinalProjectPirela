@@ -24,7 +24,18 @@ cd .\ProjectDjangoFinal\
 ## Ejecutar el servidor
 python manage.py runserver
 
-## En la página de inicio, esquina superior derecha,  se puede acceder al menú de consultas y adición de nuevas: tiendas, clientes(swapper), países. 
-## En la página de inicio, esquina superior izquierda, al pulsar sobre el nombre de APP siempre retornará a la página de Inicio. 
+## En la página de inicio, esquina superior izquierda, al pulsar sobre el nombre de APP siempre retornará a la página de Inicio, al igual que al pulsar la palabra INICIO en la esquina superior derecha. 
+## En la página de inicio, en la esquina inferior izquierda al pulsar las palabras "Acerca de Nosotros", "Servicios" o "Contáctanos", se obtienen información relacionada con la Kiddo Swapp. 
 
-# En la 
+
+## En la página de inicio, esquina superior derecha,  se puede acceder al menú de consultas y adición de nuevas: 
+- Tienda. Para registrar una nueva tienda deberá completar el formulario y presionar el botón Submit mientras que para consultar las tiendas existentes deberá presionar el botón Tiendas Registradas.
+- Clientes(swapper). Para registrar un nuevo swapper deberá completar el formulario y presionar el botón Submit mientras que para consultar los swapper existentes deberá presionar el botón Swapper Registradas.
+- Países. Para añadir un nuevo país deberá completar el formulario y presionar el botón Submit mientras que para consultar los países existentes deberá presionar el botón Países Registradas. 
+
+## Una vez registrado el usuario, presionando el botón Acceder, cargando su usuario (Nombre del Swapper) y contraseña podrá acceder a una nueva url donde es posible crear un nuevo evento (Botón Crear Evento) rellenando un formulario. Además se podrá consultar los eventos existentes. 
+Importante, sólo los swapper registrados pueden crear eventos. 
+## Presionando el botón Cerrar Sesión , será cerrada la sesión iniciada por el usuario. 
+
+
+
