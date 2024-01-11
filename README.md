@@ -1,4 +1,4 @@
-PRE Entrega # 3
+Pre Entrega # 3
 Tú Primera Página
 
 KIDDO SWAPP
@@ -33,9 +33,12 @@ python manage.py runserver
 - Clientes(swapper). Para registrar un nuevo swapper deberá completar el formulario y presionar el botón Submit mientras que para consultar los swapper existentes deberá presionar el botón Swapper Registradas.
 - Países. Para añadir un nuevo país deberá completar el formulario y presionar el botón Submit mientras que para consultar los países existentes deberá presionar el botón Países Registradas. 
 
-## Una vez registrado el usuario, presionando el botón Acceder, cargando su usuario (Nombre del Swapper) y contraseña podrá acceder a una nueva url donde es posible crear un nuevo evento (Botón Crear Evento) rellenando un formulario. Además se podrá consultar los eventos existentes. 
+Una vez registrado el usuario, presionando el botón Acceder, cargando su usuario (Nombre del Swapper) y contraseña podrá acceder a una nueva url donde es posible crear un nuevo evento (Botón Crear Evento) rellenando un formulario. Además se podrá consultar los eventos existentes. 
 Importante, sólo los swapper registrados pueden crear eventos. 
 ## Presionando el botón Cerrar Sesión , será cerrada la sesión iniciada por el usuario. 
+
+## Para realizar la búsqueda de información en la base de datos (Buscar Tienda).
+En la Pantalla Inicio, colocar el nombre de una tienda y presionar el botón "Buscar Tienda". Esto llevará al usuario a otro url donde le indicará la existencia o no de la tienda, y en caso de encontrarse en la base de datos información adicional relacionada con ciudad y descripción de la activdad de la tienda. 
 
 
 
