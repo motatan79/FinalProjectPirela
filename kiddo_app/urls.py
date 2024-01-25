@@ -18,4 +18,5 @@ urlpatterns = [
     path('tiendas_registradas', views.tiendas_registradas, name = 'tiendasregistradas'),
     path('paises_registrados', views.paises_registrados, name = 'paisesregistrados'),
     path('buscarTienda', views.buscar_tienda, name = 'buscarTienda'),
+    path('user_data', views.UserListView.as_view(), name = 'listaUsuarios'),
 ]

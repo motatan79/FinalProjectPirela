@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+        {% for user in alldata %}
+            Id: {{ user.id }} <br>
+            Usuario: {{ user.lastname}} , {{ user.name }}  <br>
+            Email: {{ user.emailid }} <br>
+            País: {{ user.pais_origen_id }} <br>
+            Dueño Tienda: {{ user.dueño_tienda }} <br><br>
+        {% endfor %}    
+{% endblock %}
+</body>

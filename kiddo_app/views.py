@@ -4,7 +4,7 @@ from .forms import RegisterForm, PaisForm, TiendaForm, EventoForm
 from django.contrib import messages
 from .models import RegisteredUser, Pais, Tienda, Evento
 from django.core.exceptions import ObjectDoesNotExist 
-
+from django.views.generic import ListView
 
 def app_homepage(request):
     try:
@@ -141,20 +141,6 @@ def paises_registrados(request):
     paises = Pais.objects.all()
     return render(request, "paises_registrados.html", {"paises": paises})
 
-# def buscar_tienda(request):
-#     # Obtener el nombre de la tienda desde la consulta GET
-#     nombre_tienda = request.GET.get('nombre', None)
-
-#     if nombre_tienda is not None:
-#         # Verificar si la tienda está en la base de datos
-#         existe_tienda = Tienda.objects.filter(nombre=nombre_tienda).exists()
-
-#         # Retornar el resultado en una respuesta HTTP
-#         return render(request, 'buscar_tienda.html', {'nombre_tienda': nombre_tienda, 'existe_tienda': existe_tienda})
-#     else:
-#         # Manejar el caso en el que no se proporciona el parámetro 'nombre'
-#         return render(request, 'buscar_tienda.html', {'nombre_tienda': None, 'existe_tienda': False})
-
 def buscar_tienda(request):
     if request.method == 'POST':
         # Obtener el nombre de la tienda desde la solicitud POST
@@ -167,10 +153,6 @@ def buscar_tienda(request):
                 descripcion = tienda.descripcion
                 ciudad = tienda.ciudad
         
-        # if nombre_tienda is not None:
-        #     # Verificar si la tienda está en la base de datos
-        #     existe_tienda = Tienda.objects.filter(nombre=nombre_tienda).exists()
-
             # Retornar el resultado en una respuesta HTTP
             return render(request, 'buscar_tienda.html', {'nombre_tienda': nombre_tienda,
                                                           'descripcion' : descripcion,
@@ -179,3 +161,12 @@ def buscar_tienda(request):
 
     # Manejar el caso en el que no se proporciona el nombre o el método no es POST
     return render(request, 'buscar_tienda.html', {'nombre_tienda': None, 'existe_tienda': False})
+
+
+# Buscar información haciendo uso de las clases de Django
+class UserListView(ListView):
+    model = RegisteredUser
+    template_name = 'user_data.html'
+    context_object_name = 'alldata'
+    
+
