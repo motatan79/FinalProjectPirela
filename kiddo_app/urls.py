@@ -22,4 +22,5 @@ urlpatterns = [
     path('user_detail/<int:pk>/', views.UserDetailView.as_view(template_name='user_detail.html'), name = 'detalleUsuarios'),
     path('user_create/', views.UserCreateView.as_view(template_name='user_create.html'), name = 'crearUsuarios'),
     path('user_update/<int:pk>/', views.UserUpdateView.as_view(template_name='user_create.html'), name = 'updateUsuarios'),
+    path('user_delete/<int:pk>/', views.UserDeleteView.as_view(template_name='user_confirm_delete.html'), name = 'deleteUsuarios'),
 ]

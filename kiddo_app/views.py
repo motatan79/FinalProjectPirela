@@ -5,6 +5,8 @@ from django.contrib import messages
 from .models import RegisteredUser, Pais, Tienda, Evento
 from django.core.exceptions import ObjectDoesNotExist 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.urls import reverse_lazy
 
 def app_homepage(request):
     try:
@@ -177,7 +179,25 @@ class UserCreateView(CreateView):
     form_class = RegisterForm
     #fields = '__all__'
     
-class UserUpdateView(UpdateView):
+# Para que solo los administradores puedan modificar los datos se usa la clase UserPassesTestMixin    
+class UserUpdateView(UserPassesTestMixin, UpdateView):
     model = RegisteredUser
     form_class = RegisterForm
-    #fields = '__all__'
+    
+    def test_func(self) -> bool:
+        if self.request.user.is_active:
+            return True
+        else:
+            return False
+
+# Para que solo los administradores puedan borrar los datos se usa la clase UserPassesTestMixin    
+class UserDeleteView(UserPassesTestMixin, DeleteView):
+    model = RegisteredUser
+    success_url = reverse_lazy('registrados')
+    
+    def test_func(self) -> bool:
+        if self.request.user.is_active:
+            print(self.request.user)
+            return True
+        else:
+            return False
