@@ -3,18 +3,22 @@
 <body>
     {% block content %}
     
+    {% if nombre_tienda %}
+        {% if existe_tienda %}
     
-    <h1>Verificación de Tienda</h1>
-    <h2>Nombre de la tienda: {{ nombre_tienda }}</h2>
-    <h2>Está ubicada en la ciudad de : {{ ciudad }}</h2>
-    <h3>La tienda se identifica como : {{ descripcion }}</h3>
-    
-
-    {% if existe_tienda %}
-        <p>La tienda está en la base de datos.</p>
+            <h1>Verificación de Tienda</h1>
+            <h2>Nombre de la tienda: {{ nombre_tienda }}</h2>
+            <h2>Está ubicada en la ciudad de : {{ ciudad }}</h2>
+            <h3>La tienda se identifica como : {{ descripcion }}</h3>
+            <p>La tienda está en la base de datos.</p>
+        {% else %}
+            <h1>Verificación de Tienda</h1>
+            <p>La tienda <h2>{{ nombre_tienda }} </h2> no está en la base de datos.</p>
+        {% endif %}
     {% else %}
-        <p>La tienda no está en la base de datos.</p>
+        <p>Por favor, introduce el nombre de la tienda.</p>
     {% endif %}
+
 <a class="btn btn-primary" href="{% url 'app_homepage' %}">Atrás</a>
 {% endblock %}
 </body>

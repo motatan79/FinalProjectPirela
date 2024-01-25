@@ -144,22 +144,29 @@ def paises_registrados(request):
     return render(request, "paises_registrados.html", {"paises": paises})
 
 def buscar_tienda(request):
+    nombre_tienda = None
+    descripcion = None
+    ciudad = None
+    existe_tienda = False
+    
     if request.method == 'POST':
         # Obtener el nombre de la tienda desde la solicitud POST
         nombre_tienda = request.POST.get('nombre_tienda', None)
         
-        if nombre_tienda is not None:
+        if nombre_tienda:
             tienda = Tienda.objects.filter(nombre=nombre_tienda).first()
-            
+                    
             if tienda is not None:
                 descripcion = tienda.descripcion
                 ciudad = tienda.ciudad
+                existe_tienda = True
         
             # Retornar el resultado en una respuesta HTTP
             return render(request, 'buscar_tienda.html', {'nombre_tienda': nombre_tienda,
                                                           'descripcion' : descripcion,
                                                           'ciudad': ciudad,
-                                                          'existe_tienda': True})
+                                                          'existe_tienda': existe_tienda})
+            
 
     # Manejar el caso en el que no se proporciona el nombre o el método no es POST
     return render(request, 'buscar_tienda.html', {'nombre_tienda': None, 'existe_tienda': False})
