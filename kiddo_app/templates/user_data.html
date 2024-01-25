@@ -2,13 +2,30 @@
 
 <body>
     {% block content %}
-        {% for user in alldata %}
-            Id: {{ user.id }} <br>
-            Usuario: {{ user.lastname}}, {{ user.name }}  <br>
-            Email: {{ user.emailid }} <br>
-            País: {{ user.pais_origen_id }} <br>
-            Tienda: {{ user.tienda_id }} <br>
-            Dueño Tienda: {{ user.dueño_tienda }} <br><br>
-        {% endfor %}    
-{% endblock %}
+        <h2>Swapper Registrados</h2>
+        {% if request.user.is_superuser or request.user.is_staff %}
+            <table border='2'>
+                <tr>
+                    <th>Id</th>
+                    <th>Usuario</th>
+                    <th>Email</th>
+                    <th>País</th>
+                    <th>Tienda</th>
+                    <th>Dueño Tienda</th>
+                </tr>
+
+                {% for user in alldata %}
+
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.lastname}}, {{ user.name }}</td>
+                    <td>{{ user.emailid }}</td>
+                    <td>{{ user.pais_origen_id }}</td>
+                    <td>{{ user.tienda_id }}</td>
+                    <td>{{ user.dueño_tienda }}</td>
+                </tr>    
+                {% endfor %}    
+            </table>
+        {% endif %}
+    {% endblock %}
 </body>

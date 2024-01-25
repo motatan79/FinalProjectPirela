@@ -40,9 +40,10 @@ Importante, sólo los swapper registrados pueden crear eventos.
 ## Para realizar la búsqueda de información en la base de datos (Buscar Tienda).
 En la Pantalla Inicio, colocar el nombre de una tienda y presionar el botón "Buscar Tienda". Esto llevará al usuario a otro url donde le indicará la existencia o no de la tienda, y en caso de encontrarse en la base de datos información adicional relacionada con ciudad y descripción de la activdad de la tienda. 
 
-## Creación, actualización y eliminación de usuarios. 
+## Creación, actualización y eliminación de usuarios usando clases propias de Django
 Usando clases propias de Django la app permite crear, actualizar y eliminar usuarios. 
 Es importante considerar que sólo usuarios que inicien sesión como superusuario o que pertenezcan al staff, en el panel de administración pueden modificar contactos ya creados desde la app. 
+Solo usuarios que inicien sesión como superusuario pueden eliminar usuarios ya creados en la app. 
 
 
 

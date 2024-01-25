@@ -2,14 +2,39 @@
 
 <body>
     {% block content %}
-        Id: {{ object.id }} <br>
-        Usuario: {{ object.lastname}} , {{ object.name }}  <br>
-        Email: {{ object.emailid }} <br>
-        País: {{ object.pais_origen_id }} <br>
-        Teléfono: {{ object.telefono }} <br>
-        Fecha de Nacimiento: {{ object.nacimiento }} <br>
-        Tienda: {{ object.tienda_id }} <br>
-        Dueño Tienda: {{ object.dueño_tienda }} <br><br>
-         
+        <h2>Detalles de usuario</h2>
+        <table border="2">
+            <tr>
+                <td>Id:</td> <td>{{ object.id }}</td>
+            </tr>
+            <tr>
+                <td>Usuario:</td> <td>{{ object.lastname}} , {{ object.name }}</td>
+            </tr>
+            <tr>
+                <td>Email:</td> <td>{{ object.emailid }}</td>
+            </tr>
+            <tr>
+                <td>País:</td> <td>{{ object.pais_origen_id }}</td>
+            </tr>
+            <tr>
+                <td>Teléfono:</td> <td>{{ object.telefono }}</td>
+            </tr>
+            <tr>
+                <td>Fecha de Nacimiento:</td> <td>{{ object.nacimiento }}</td>
+            </tr>   
+            <tr>
+                <td>Tienda:</td> <td>{{ object.tienda_id }}</td>
+            </tr>
+            <tr>
+                <td>Dueño Tienda:</td> <td>{{ object.dueño_tienda }}</td>
+            </tr>
+        </table>
+
+        {% if request.user.is_superuser or request.user.is_staff %}
+            <a class="btn btn-primary" href="{% url 'updateUsuarios' object.id %}">Editar</a>
+            <a class="btn btn-primary" href="{% url 'deleteUsuarios' object.id %}">Eliminar</a>
+        {% else %}
+            <p> Ingresa con un usuario administrador para editar un usuario</p>
+        {% endif %}
     {% endblock %}
 </body>
