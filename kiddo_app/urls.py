@@ -19,4 +19,7 @@ urlpatterns = [
     path('paises_registrados', views.paises_registrados, name = 'paisesregistrados'),
     path('buscarTienda', views.buscar_tienda, name = 'buscarTienda'),
     path('user_data', views.UserListView.as_view(), name = 'listaUsuarios'),
+    path('user_detail/<int:pk>/', views.UserDetailView.as_view(template_name='user_detail.html'), name = 'detalleUsuarios'),
+    path('user_create/', views.UserCreateView.as_view(template_name='user_create.html'), name = 'crearUsuarios'),
+    path('user_update/<int:pk>/', views.UserUpdateView.as_view(template_name='user_create.html'), name = 'updateUsuarios'),
 ]

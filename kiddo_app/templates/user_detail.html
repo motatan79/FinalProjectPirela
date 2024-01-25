@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+        Id: {{ object.id }} <br>
+        Usuario: {{ object.lastname}} , {{ object.name }}  <br>
+        Email: {{ object.emailid }} <br>
+        País: {{ object.pais_origen_id }} <br>
+        Teléfono: {{ object.telefono }} <br>
+        Fecha de Nacimiento: {{ object.nacimiento }} <br>
+        Tienda: {{ object.tienda_id }} <br>
+        Dueño Tienda: {{ object.dueño_tienda }} <br><br>
+         
+    {% endblock %}
+</body>

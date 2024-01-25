@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -52,6 +53,10 @@ class RegisteredUser(models.Model):
     
     def __str__(self) -> str:
         return f'{self.lastname}, {self.name}'
+    
+    def get_absolute_url(self):
+        return reverse("detalleUsuarios", kwargs={"pk": self.pk})
+    
     
 class Evento(models.Model):
     patrocinante = models.ForeignKey(RegisteredUser, null = True, blank = True, on_delete = models.SET_NULL, verbose_name = 'Patrocinante')

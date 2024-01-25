@@ -4,7 +4,7 @@ from .forms import RegisterForm, PaisForm, TiendaForm, EventoForm
 from django.contrib import messages
 from .models import RegisteredUser, Pais, Tienda, Evento
 from django.core.exceptions import ObjectDoesNotExist 
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 def app_homepage(request):
     try:
@@ -169,4 +169,15 @@ class UserListView(ListView):
     template_name = 'user_data.html'
     context_object_name = 'alldata'
     
-
+class UserDetailView(DetailView):
+    model = RegisteredUser
+    
+class UserCreateView(CreateView):
+    model = RegisteredUser
+    form_class = RegisterForm
+    #fields = '__all__'
+    
+class UserUpdateView(UpdateView):
+    model = RegisteredUser
+    form_class = RegisterForm
+    #fields = '__all__'
