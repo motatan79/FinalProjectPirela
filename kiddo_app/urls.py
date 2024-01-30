@@ -1,15 +1,21 @@
 from . import views
 from django.urls import path, include
+from . views import *
+from django.contrib.auth.views import LogoutView
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('', views.app_homepage, name='app_homepage'),
-    path('about_us', views.about_us, name='about_us'),
+    #path('about_us', views.about_us, name='about_us'),
+    path('about_us', TemplateView.as_view(template_name='aboutUs.html'), name='about_us'), 
     path('services', views.services, name='services'),
     path('contact_us', views.contact_us, name='contact_us'),
     path('register', views.register, name = 'register'),
-    path('signin', views.signin, name = 'signin'),
+    path('registercliente', views.registrar_cliente, name = 'registercliente'),
+    path('signin', CustomLoginView.as_view(template_name='signin.html'), name = 'signin'),
     path('loggedin', views.loggedin, name = 'loggedin'),
-    path('logout', views.logout, name = 'logout'),
+    path('logout', LogoutView.as_view(), name = 'logout'),
     path('registrarpais', views.pais, name = 'registrarpais'),
     path('registrartienda', views.tienda, name = 'registrartienda'),
     path('registrarevento', views.evento, name = 'registrarevento'),
@@ -23,4 +29,5 @@ urlpatterns = [
     path('user_create/', views.UserCreateView.as_view(template_name='user_create.html'), name = 'crearUsuarios'),
     path('user_update/<int:pk>/', views.UserUpdateView.as_view(template_name='user_create.html'), name = 'updateUsuarios'),
     path('user_delete/<int:pk>/', views.UserDeleteView.as_view(template_name='user_confirm_delete.html'), name = 'deleteUsuarios'),
+    path('login/', views.UserDeleteView.as_view(template_name='user_confirm_delete.html'), name = 'login'),
 ]

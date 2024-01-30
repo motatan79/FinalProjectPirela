@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<body>
-    {% block content %}
-        Kiddo Swap es un rincón donde se busca crear un juego de sostenibilidad y diversión 
-        en cada intercambio de ropa para pequeños aventureros.
-    {% endblock %}
-</body>
+{% block content %}
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="text-center">
+      <h1 class="display-4">Bienvenido a nuestra página</h1>
+      <p class="lead">Kiddo Swap es un rincón donde se busca crear un juego de sostenibilidad y diversión 
+        en cada intercambio de ropa para pequeños aventureros.</p>
+
+      <h5>Nuestro Equipo</h5>
+      <ul class="list-group">
+        <li class="list-group-item">Juan - CEO</li>
+        <li class="list-group-item">Pepe - CTO</li>
+      </ul>
+    </div>
+  </div>
+{% endblock content %}

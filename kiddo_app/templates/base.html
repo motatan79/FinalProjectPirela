@@ -24,9 +24,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url "app_homepage" %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url "registrartienda" %}">Tienda</a></li>
-                        <li class="nav-item"><a class="nav-link" href="register">Cliente</a></li>
-                        <li class="nav-item"><a class="nav-link" href="registrarpais">País</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url "about_us" %}">Nosotros</a></li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link {% if '/registrartienda/' in request.path %} active {% endif %} " href="{% url "registrartienda" %}">Tienda</a></li>
+                            <li class="nav-item"><a class="nav-link {% if '/registrados/' in request.path %} active {% endif %}" href="{% url 'registrados' %}">Cliente</a></li>
+                            <li class="nav-item"><a class="nav-link {% if '/registrarpais/' in request.path %} active {% endif %}" href="registrarpais">País</a></li>
+                            <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
+                            <li class="nav-item">
+                                <form action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-dark">Logout</button>
+                                </form>
+                            </li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link {% if '/signin/' in request.path %} active {% endif %} " href="{% url 'signin' %}">Login</a></li>
+                            <li class="nav-item"><a class="nav-link {% if '/register/' in request.path %} active {% endif %} " href="{% url 'register' %}">Register</a></li>
+                        {% endif %}
+                      
                     </ul>
                 </div>
             </div>
@@ -44,7 +58,7 @@
                     <h1 class="font-weight-light">Kiddo Swapp</h1>
         <p>!! Kiddo Swap es un rincón donde se busca crear un juego de sostenibilidad y diversión!!
              </p>
-                    <a class="btn btn-primary" href="signin">Acceder</a>
+             <a class="btn btn-success" href="https:/wa.me/5492611111111" target="_blank">WhatsApp</a>
                     
                 </div>
             </div>
@@ -97,7 +111,6 @@
         <!-- Footer-->
         <footer class="py-2 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Kiddo Swapp 2024</p></div>
-            <a href="{% url 'about_us' %}">Acerca de Nosotros</a>
             <a href="{% url 'services' %}">Servicios</a>
             <a href="{% url 'contact_us' %}">Contáctanos</a>
         </footer>

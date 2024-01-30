@@ -3,7 +3,7 @@
 <body>
     {% block content %}
     <h2> Tiendas Registradas </h2>
-    
+
     <table border="4">
         <thead>
             <th>Nombre</th>
@@ -20,10 +20,13 @@
                     <td>{{ tienda.ciudad }}</td>
                     <td>{{ tienda.tipo_de_tienda }}</td>
                     <td>{{ tienda.descripcion }}</td>
+                    <td>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    
     <a class="btn btn-primary" href="{% url 'app_homepage' %}">Atrás</a>
     {% endblock %}
 </body>

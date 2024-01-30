@@ -20,13 +20,28 @@
                 <td>Teléfono:</td> <td>{{ object.telefono }}</td>
             </tr>
             <tr>
-                <td>Fecha de Nacimiento:</td> <td>{{ object.nacimiento }}</td>
+                <td>Fecha de Nacimiento:</td> 
+                {% if object.nacimiento %}
+                        <td>{{ object.nacimiento }}</td>
+                    {% else %}
+                        <td>Sin registro</td>
+                    {% endif %}
             </tr>   
             <tr>
-                <td>Tienda:</td> <td>{{ object.tienda_id }}</td>
+                <td>Tienda:</td> 
+                {% if object.tienda_id %} 
+                        <td>{{ object.tienda_id }}</td>
+                {% else %}
+                        <td>Sin Registro</td>
+                {% endif %}
             </tr>
             <tr>
-                <td>Dueño Tienda:</td> <td>{{ object.dueño_tienda }}</td>
+                <td>Dueño Tienda:</td>
+                {% if object.dueño_tienda %} 
+                        <td>Si</td>
+                {% else %}
+                        <td>No</td>
+                {% endif %}
             </tr>
         </table>
 
@@ -36,5 +51,7 @@
         {% else %}
             <p> Ingresa con un usuario administrador para editar un usuario</p>
         {% endif %}
+
+    <a class="btn btn-primary" href="{% url 'registrados' %}">Atrás</a>    
     {% endblock %}
 </body>

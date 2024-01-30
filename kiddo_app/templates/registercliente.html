@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+<body>
+    {% block content %}
+    <div class="row gx-4 gx-lg-5">
+        <div class="col-md-3 mb-10">
+            <div class= "card h-100">
+                <div class="card-body">
+                    
+                    <p2 class="card-title">CREA TU USUARIO SWAPPER!</h2>
+            </div>
+        </div>    
+    </div>
+
+    <h4> Comienza a Disfrutar Una Vida Plena de Frugalidad</h4>
+    <form action="" method="post">
+        <!-- Para proteger la página de falsificaciones de solicitudes entre sitios -->
+        {% csrf_token %}
+        {{form.as_p}}
+    <input type='submit' value='Submit'>
+    </form>
+    <form method='get' action='registrados'>
+        <h3> Chequea los Swapper registrados</h3>
+        <a class="btn btn-primary" href="{% url 'registrados' %}">Swappers Registrados</a>
+    </form>
+    {% endblock %}
+</body>
+

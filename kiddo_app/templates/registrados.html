@@ -6,29 +6,24 @@
     
     <table border="4">
         <thead>
-            <th>Apellido</th>
-            <th>Nombre</th>
-            <th>Nacimiento</th>
-            <th>Dueño de Tienda</th>
+            <th>Cliente</th>
             <th>País</th>
             
         </thead>
         <tbody>
             {% for cliente in clientes %}
                 <tr>
-                    <td>{{ cliente.lastname }}</td>
-                    <td>{{ cliente.name }}</td>
-                    {% if cliente.nacimiento %}
-                        <td>{{ cliente.nacimiento }}</td>
-                    {% else %}
-                        <td>Sin registro</td>
-                    {% endif %}
-                    {% if cliente.dueño_tienda %} 
-                        <td>Si</td>
-                    {% else %}
-                        <td>No</td>
-                    {% endif %}
+                    <td>{{ cliente.lastname }}, {{ cliente.name }}</td>
                     <td>{{ cliente.pais_origen_id }}</td>
+                    <td> 
+                        <a href="{% url 'detalleUsuarios' cliente.id %}" class="btn btn-primary me-2">Ver</a>
+                    </td>
+                    {% if request.user.is_superuser or request.user.is_staff  %}
+                    <td>
+                        <a href="{% url 'updateUsuarios' cliente.id %}" class="btn btn-warning me-2">Editar</a>
+                        <a href="{% url 'deleteUsuarios' cliente.id %}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         </tbody>
@@ -40,5 +35,6 @@
     <a></a>
 
     <a class="btn btn-primary" href="{% url 'app_homepage' %}">Atrás</a>
+    <a class="btn btn-primary" href="{% url 'registercliente' %}">Crear Cliente</a>
     {% endblock %}
 </body>

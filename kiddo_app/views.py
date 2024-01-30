@@ -1,12 +1,15 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import RegisterForm, PaisForm, TiendaForm, EventoForm
+from .forms import *
 from django.contrib import messages
 from .models import RegisteredUser, Pais, Tienda, Evento
 from django.core.exceptions import ObjectDoesNotExist 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.urls import reverse_lazy
+from django.core.exceptions import PermissionDenied
 
 def app_homepage(request):
     try:
@@ -40,9 +43,18 @@ def contact_us(request):
            return render(request, 'contactUs.html')
     except NameError:
         return render(request, 'contactUs.html')
-
-
 def register(request):
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, "base.html")
+    else:
+        form = CustomUserCreationForm()
+    return render(request, "register.html", {"form": form})
+
+
+def registrar_cliente(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -59,24 +71,24 @@ def register(request):
 
 
 # Creación de la vista sign-in
-def signin(request):
-    global usrnme
-    if request.method == 'POST':
-        usrnme = request.POST['username']
-        psswrd = request.POST['pswd']
+# def signin(request):
+#     global usrnme
+#     if request.method == 'POST':
+#         usrnme = request.POST['username']
+#         psswrd = request.POST['pswd']
         
-        try:
-            user = RegisteredUser.objects.get(name=usrnme)
-            if usrnme == user.name and psswrd == user.password:
-                return redirect('loggedin')
-            else:
-                messages.info(request, "Clave incorrecta")
-                return redirect("signin")
-        except ObjectDoesNotExist:
-            messages.info(request, "El usuario no existe")
-            return redirect("signin")
-    else:
-        return render(request, "signin.html")
+#         try:
+#             user = RegisteredUser.objects.get(name=usrnme)
+#             if usrnme == user.name and psswrd == user.password:
+#                 return redirect('loggedin')
+#             else:
+#                 messages.info(request, "Clave incorrecta")
+#                 return redirect("signin")
+#         except ObjectDoesNotExist:
+#             messages.info(request, "El usuario no existe")
+#             return redirect("signin")
+#     else:
+#         return render(request, "signin.html")
     
     
 def loggedin(request):
@@ -184,6 +196,7 @@ class UserDetailView(DetailView):
 class UserCreateView(CreateView):
     model = RegisteredUser
     form_class = RegisterForm
+    success_url = reverse_lazy("registrados")
     #fields = '__all__'
     
 # Para que solo los administradores puedan modificar los datos se usa la clase UserPassesTestMixin    
@@ -192,10 +205,13 @@ class UserUpdateView(UserPassesTestMixin, UpdateView):
     form_class = RegisterForm
     
     def test_func(self) -> bool:
-        if self.request.user.is_active:
-            return True
-        else:
-            return False
+        return self.request.user.is_authenticated and self.request.user.is_superuser
+        # if self.request.user.is_active:
+        #     return True
+        # else:
+        #     return False
+    def handle_no_permission(self) -> HttpResponseRedirect:
+        return HttpResponseRedirect(reverse_lazy('registrados'))
 
 # Para que solo los administradores puedan borrar los datos se usa la clase UserPassesTestMixin    
 class UserDeleteView(UserPassesTestMixin, DeleteView):
@@ -208,3 +224,7 @@ class UserDeleteView(UserPassesTestMixin, DeleteView):
             return True
         else:
             return False
+        
+class CustomLoginView(LoginView):
+    authentication_form = CustomAuthenticationForm
+    template_name = "signin.html"
