@@ -26,10 +26,11 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url "app_homepage" %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url "about_us" %}">Nosotros</a></li>
                         {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link {% if '/registrados/' in request.path %} active {% endif %}" href="{% url 'registrados' %}">Perfil</a></li>
                             <li class="nav-item"><a class="nav-link {% if '/registrartienda/' in request.path %} active {% endif %} " href="{% url "registrartienda" %}">Tienda</a></li>
-                            <li class="nav-item"><a class="nav-link {% if '/registrados/' in request.path %} active {% endif %}" href="{% url 'registrados' %}">Cliente</a></li>
                             <li class="nav-item"><a class="nav-link {% if '/registrarpais/' in request.path %} active {% endif %}" href="registrarpais">País</a></li>
-                            <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
+                            <li class="nav-item"><a class="nav-link {% if '/registrarevento/' in request.path %} active {% endif %} " href="{% url "registrarevento" %}">Evento</a></li>
+                            <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username.upper }}</a></li>
                             <li class="nav-item">
                                 <form action="{% url 'logout' %}" method="post">
                                     {% csrf_token %}

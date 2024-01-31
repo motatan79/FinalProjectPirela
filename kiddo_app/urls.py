@@ -11,7 +11,7 @@ urlpatterns = [
     path('about_us', TemplateView.as_view(template_name='aboutUs.html'), name='about_us'), 
     path('services', views.services, name='services'),
     path('contact_us', views.contact_us, name='contact_us'),
-    path('register', views.register, name = 'register'),
+    path('register/', views.register, name = 'register'),
     path('registercliente', views.registrar_cliente, name = 'registercliente'),
     path('signin', CustomLoginView.as_view(template_name='signin.html'), name = 'signin'),
     path('loggedin', views.loggedin, name = 'loggedin'),
