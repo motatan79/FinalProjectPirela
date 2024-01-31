@@ -6,7 +6,7 @@
         <!-- Para proteger la página de falsificaciones de solicitudes entre sitios -->
         {% csrf_token %}
         {{form.as_p}}
-    <input type='submit' value='Submit'>
+        <button type="submit" class="btn btn-primary">Registrar Evento</button>
     </form>
     <form method='get' action='eventosagendados'>
         <h3> Chequea los Eventos registrados</h3>
