@@ -6,7 +6,7 @@
             {% csrf_token %}
             {% if request.user.is_superuser or request.user.is_staff  %}
                 {{ form.as_p }}
-                <button type ="submit"> Guardar Contacto </button>
+                <button type="submit" class="btn btn-primary">Guardar Contacto</button>
             {% else %}
                 El usuario activo no es un superusuario o no es un usuario del staff y no puede actualizar contactos. <br>
                 Por favor accede como un superusuario o usuario del staff para actualizar contactos.
