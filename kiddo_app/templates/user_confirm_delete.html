@@ -7,7 +7,7 @@
             {% if request.user.is_superuser %}
                 ¿Estás seguro que quieres borrar al contacto {{ object.lastname }}, {{ object.name }}?
                 <br><br>
-                <button type ="submit"> Borrar Contacto </button>&emsp;&emsp;
+                <button type="submit" class="btn btn-primary">Borrar Contacto</button>
                 <a role="button" href="{% url 'detalleUsuarios' object.id %}"> Cancelar </a>
             {% else %}
                 El usuario activo no es un superusuario y no puede borrar contactos. <br>

@@ -73,21 +73,25 @@ El usuario conectado a la app, con nombre y contraseña, además de visualizar s
 Los usuarios que accedan con credenciales de administrador, en la página de inicio tendrán las mismas funcionalidades que los usuarios conectados a la app.
 Así como todo las funcionalidades de la barra de navegación (crear perfiles, tiendas, países y eventos) y la barra de búsqueda de tienda, descritas en el apartado anterior.
 
-Sólo el administrador podrá actualizar y eliminar perfiles de swappers en la app, desde la barra de navegación accediendo a través de Perfil:
+El único privilegio exclusivo del administrador sera actualizar y eliminar perfiles de swappers en la app, desde la barra de navegación accediendo a través de Perfil:
 -   Perfil. Podrá ver:
     - Lista de swapper registrados y su país, y: 
-        - Ver. El usuario podrá ver el detalle de cada Swapper al presionar el Botón Ver (id, email, país, teléfono, fecha de nacimiento, tienda, dueño de tienda). Para volver a la página anterior deberá presionar Botón Atrás. 
-        - Editar. El usuario podrá presionar el Botón Editar para editar la información de un Swapper rellenando el formulario y presionando el Botón Guardar Contacto perfil. Luego se redirigira a la pantalla de edición.
-
+        - Ver. El administrador podrá ver el detalle de cada Swapper al presionar el Botón Ver (id, email, país, teléfono, fecha de nacimiento, tienda, dueño de tienda).
+            - Editar. El administrador podrá presionar el Botón Editar para editar la información de un Swapper rellenando el formulario y presionando el Botón Guardar Contacto. Luego se redirigirá a la pantalla de detalle del usuario.
+            - Eliminar. El administrador podrá presionar el Botón Eliminar para eliminar un Swapper de la base de datos. Aparecerá un mensaje de confirmación de la acción de eliminar el Swapper y dos botones.
+                - Borrar Contacto. Al presiomar este botón el administrador confirma la eliminación del Swapper. Luego se redirigira a la pantalla de Perfil con la lista de Swappers registrados sin el usuario recientemente eliminado. 
+                - Cancelar. Al presionar este botón se redirigira a la pantalla de detalle de  los datos del Swapper.
+            - Atrás. Para volver a la página anterior deberá presionar Botón Atrás. 
+        - Editar. El administrador será redirigido a la pantalla de edición del formulario de datos del Swapper, debe rellenar los campos que desea editar. Podrá realizar dos acciones:
+            - Guardar Contacto.  Actualiza la información del Swapper que queda guardada en la base de datos y en el detalle del perfil del Swapper. 
+            - Atrás. No actualiza la información del Swapper y se redirige a la pantalla de Perfil.
+        - Eliminar. El administrador podrá presionar el Botón Eliminar para eliminar un Swapper de la base de datos. Aparecerá un mensaje de confirmación de la acción de eliminar el Swapper y dos botones.
+            - Borrar Contacto. Al presiomar este botón el administrador confirma la eliminación del Swapper. Luego se redirigira a la pantalla de Perfil con la lista de Swappers registrados sin el usuario recientemente eliminado. 
+            - Cancelar. Al presionar este botón se redirigira a la pantalla de detalle de  los datos del Swapper.   
     - Crear Perfil. 
         - Registrar. El usuario podrá completar su perfil, rellenando el formulario y presionando el Botón Registrar. El Botón Registrar llevará al usuario a la página anterior pero en este caso en la lista de Swappers podrá ver al final de la lista su usuario.
         - Cancelar. En caso de presionar el Botón Cancelar, se redirigira al inicio. 
     - Atrás. El usuario podrá presionar el Botón Atrás para volver a la página inicio.
-
-
-Usando clases propias de Django la app permite actualizar y eliminar swappers. 
-Es importante considerar que sólo usuarios que inicien sesión como superusuario o que pertenezcan al staff, en el panel de administración pueden modificar contactos ya creados desde la app. 
-Solo usuarios que inicien sesión como superusuario pueden eliminar o actualizar swappers ya creados en la app. 
 
 
 
