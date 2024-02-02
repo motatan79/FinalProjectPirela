@@ -1,12 +1,12 @@
 # Proyecto Final Coder House - Python Flex
-Comisión: 56060
+Comisión: 56060.
 Creador: Pirela, Moises.
 ## Nombre del Proyecto
 KIDDO SWAPP 
 ## Versión
 1.0
 
-## Descripción
+# DESCRIPCIÓN DEL PROYECTO 
 
 KIDDO SWAPP
 Es una app de intercambio de ropa de segunda mano para niños, con presencia en Latinoamérica. 
