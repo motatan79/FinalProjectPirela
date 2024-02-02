@@ -1,10 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title  %}
     Kiddo Swapp
 {% endblock title %}
 
 {% block content  %}
-    
-    
+     <!-- Heading Row-->
+     <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'img/homepage.png' %}" alt="..." /> 
+        </div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Kiddo Swapp</h1>
+<p>!! Kiddo Swap es un rincón donde se busca crear un juego de sostenibilidad y diversión!!
+     </p>
+     <a class="btn btn-success" href="https:/wa.me/5492611111111" target="_blank">WhatsApp</a>
+            
+        </div>
+    </div>
+    <h5>Verifica si tu tienda Ya es parte de nuestra comunidad!!
+    </h5>
+
+    <form action='buscarTienda' method='POST'>
+        {% csrf_token %}
+        <input type= 'string' placeholder="Buscar..." name = 'nombre_tienda'>
+        <input type= 'submit' value= 'Buscar Tienda'>
+    </form>
+
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-8 text-center">
+        <div class="card-body"><p class="text-white m-0">Somos una app de intercambio de ropa de segunda mano para niños,
+            con presencia en Latinoamérica!</p></div>
+    </div>
 {% endblock content %}

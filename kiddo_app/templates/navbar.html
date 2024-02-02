@@ -1,0 +1,34 @@
+
+<!-- Responsive navbar-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="{% url "app_homepage" %}">KIDDO SWAPP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url "app_homepage" %}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url "about_us" %}">Nosotros</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link {% if '/registrados/' in request.path %} active {% endif %}" href="{% url 'registrados' %}">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link {% if '/registrartienda/' in request.path %} active {% endif %} " href="{% url "registrartienda" %}">Tienda</a></li>
+                    <li class="nav-item"><a class="nav-link {% if '/registrarpais/' in request.path %} active {% endif %}" href="registrarpais">País</a></li>
+                    <li class="nav-item"><a class="nav-link {% if '/registrarevento/' in request.path %} active {% endif %} " href="{% url "registrarevento" %}">Evento</a></li>
+                    <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username.upper }}</a></li>
+                    <li class="nav-item">
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-dark">Logout</button>
+                        </form>
+                    </li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link {% if '/register/' in request.path %} active {% endif %} " href="{% url 'register' %}">Registrarse</a></li>
+                    <li class="nav-item"><a class="nav-link {% if '/signin/' in request.path %} active {% endif %} " href="{% url 'signin' %}">Acceder</a></li>
+                    {% endif %}
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+             
+        

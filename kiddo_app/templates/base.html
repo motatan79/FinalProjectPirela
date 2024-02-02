@@ -15,37 +15,7 @@
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
-        <!-- Responsive navbar-->
-        
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-5">
-                <a class="navbar-brand" href="{% url "app_homepage" %}">KIDDO SWAPP</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url "app_homepage" %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url "about_us" %}">Nosotros</a></li>
-                        {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link {% if '/registrados/' in request.path %} active {% endif %}" href="{% url 'registrados' %}">Perfil</a></li>
-                            <li class="nav-item"><a class="nav-link {% if '/registrartienda/' in request.path %} active {% endif %} " href="{% url "registrartienda" %}">Tienda</a></li>
-                            <li class="nav-item"><a class="nav-link {% if '/registrarpais/' in request.path %} active {% endif %}" href="registrarpais">País</a></li>
-                            <li class="nav-item"><a class="nav-link {% if '/registrarevento/' in request.path %} active {% endif %} " href="{% url "registrarevento" %}">Evento</a></li>
-                            <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username.upper }}</a></li>
-                            <li class="nav-item">
-                                <form action="{% url 'logout' %}" method="post">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-dark">Logout</button>
-                                </form>
-                            </li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link {% if '/register/' in request.path %} active {% endif %} " href="{% url 'register' %}">Registrarse</a></li>
-                            <li class="nav-item"><a class="nav-link {% if '/signin/' in request.path %} active {% endif %} " href="{% url 'signin' %}">Acceder</a></li>
-                            {% endif %}
-                      
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% include 'navbar.html' %}
              
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
@@ -53,30 +23,7 @@
             
             {% endblock content %}
             <!-- Heading Row-->
-            <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'img/homepage.png' %}" alt="..." /></div>
-                <div class="col-lg-5">
-                    <h1 class="font-weight-light">Kiddo Swapp</h1>
-        <p>!! Kiddo Swap es un rincón donde se busca crear un juego de sostenibilidad y diversión!!
-             </p>
-             <a class="btn btn-success" href="https:/wa.me/5492611111111" target="_blank">WhatsApp</a>
-                    
-                </div>
-            </div>
-            <h5>Verifica si tu tienda Ya es parte de nuestra comunidad!!
-            </h5>
-       
-            <form action='buscarTienda' method='POST'>
-                {% csrf_token %}
-                <input type= 'string' placeholder="Buscar..." name = 'nombre_tienda'>
-                <input type= 'submit' value= 'Buscar Tienda'>
-            </form>
-
-            <!-- Call to Action-->
-            <div class="card text-white bg-secondary my-5 py-8 text-center">
-                <div class="card-body"><p class="text-white m-0">Somos una app de intercambio de ropa de segunda mano para niños,
-                    con presencia en Latinoamérica!</p></div>
-            </div>
+        <br></br>    
             <!-- Content Row-->
             <!-- 
             <div class="row gx-4 gx-lg-5">
