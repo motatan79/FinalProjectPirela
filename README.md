@@ -94,6 +94,3 @@ Otro privilegio exclusivo del administrador será actualizar y eliminar perfiles
         - Registrar. El usuario podrá completar su perfil, rellenando el formulario y presionando el Botón Registrar. El Botón Registrar llevará al usuario a la página anterior pero en este caso en la lista de Swappers podrá ver al final de la lista su usuario.
         - Cancelar. En caso de presionar el Botón Cancelar, se redirigira al inicio. 
     - Atrás. El usuario podrá presionar el Botón Atrás para volver a la página inicio.
-
-
-
