@@ -1,12 +1,13 @@
 from . import views
 from django.urls import path, include
-from . views import *
+from .views import *
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('', views.app_homepage, name='app_homepage'),
+    #path('', views.app_homepage, name='app_homepage'),
+    path('', index, name='index'),
     #path('about_us', views.about_us, name='about_us'),
     path('about_us', TemplateView.as_view(template_name='aboutUs.html'), name='about_us'), 
     path('services', views.services, name='services'),
@@ -15,7 +16,7 @@ urlpatterns = [
     path('registrarcliente', views.registrar_cliente, name = 'registrarcliente'),
     path('signin', CustomLoginView.as_view(template_name='signin.html'), name = 'signin'),
     path('loggedin', views.loggedin, name = 'loggedin'),
-    path('logout', LogoutView.as_view(), name = 'logout'),
+    path('logout/', LogoutView.as_view(template_name='logout.html'), name = 'logout'),
     path('registrarpais', views.pais, name = 'registrarpais'),
     path('registrartienda', views.tienda, name = 'registrartienda'),
     path('registrarevento', views.evento, name = 'registrarevento'),

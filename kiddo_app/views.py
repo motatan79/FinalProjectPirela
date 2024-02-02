@@ -11,6 +11,9 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.core.exceptions import PermissionDenied
 
+def index(request):
+    return render(request, "index.html")
+
 def app_homepage(request):
     try:
         if usrnme:
@@ -48,7 +51,7 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, "base.html")
+            return render(request, "index.html")
     else:
         form = CustomUserCreationForm()
     return render(request, "register.html", {"form": form})
@@ -64,7 +67,7 @@ def registrar_cliente(request):
     else:
         form = RegisterForm()
         user_info = {'form': form}
-        return render(request, "register.html", user_info)
+        return render(request, "registercliente.html", user_info)
     
 # def signin(request):
 #     return render(request, 'signin.html')

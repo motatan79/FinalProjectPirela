@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-<body>
-    {% block content %}
-        Cierre de Sesión exitoso <br><br>
-        <a href="{% url "signin" %}">Ingresa de nuevo</a>
-    {% endblock %}
-</body>
+
+{% block content %}
+    Cierre de Sesión exitoso!!! <br><br>
+    <a href="{% url "signin" %}">Ingresa de nuevo</a>
+    
+{% endblock %}

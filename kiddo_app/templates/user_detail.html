@@ -49,6 +49,7 @@
             <a class="btn btn-primary" href="{% url 'updateUsuarios' object.id %}">Editar</a>
             <a class="btn btn-primary" href="{% url 'deleteUsuarios' object.id %}">Eliminar</a>
         {% else %}
+            
             <p> Ingresa con un usuario administrador para editar un usuario</p>
         {% endif %}
 

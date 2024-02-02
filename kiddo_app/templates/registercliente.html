@@ -7,7 +7,7 @@
             <div class= "card h-100">
                 <div class="card-body">
                     
-                    <p2 class="card-title">CREA TU USUARIO SWAPPER!</h2>
+                    <p2 class="card-title">CREA TU PERFIL SWAPPER!</h2>
             </div>
         </div>    
     </div>
@@ -17,7 +17,8 @@
         <!-- Para proteger la página de falsificaciones de solicitudes entre sitios -->
         {% csrf_token %}
         {{form.as_p}}
-    <input type='submit' value='Submit'>
+
+    <button type="submit" class="btn btn-primary">Registrar PERFIL</button>
     </form>
     <form method='get' action='registrados'>
         <h3> Chequea los Swapper registrados</h3>

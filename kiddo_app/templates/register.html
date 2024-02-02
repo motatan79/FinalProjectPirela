@@ -8,13 +8,12 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="hidden" name="next" value="{% url 'app_homepage' %}">
+        <input type="hidden" name="next" value="{% url 'index' %}">
 
         <button type="submit" class="btn btn-primary">Registrar</button>
-        <a href="{% url 'app_homepage' %}" class="btn btn-secondary">Cancelar</a>
+        <a href="{% url 'index' %}" class="btn btn-secondary">Cancelar</a>
     </form>
   </div>
-
-
+  
 {% endblock %}
 
