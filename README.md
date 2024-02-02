@@ -68,7 +68,7 @@ El usuario conectado a la app, con nombre y contraseña, además de visualizar s
 - Evento. En esta página podra visualizar:
     - Registrar Evento. Para registrar un nuevo evento deberá completar el formulario, vinculando el evento a un Patrocinante, País y Tienda Patrocinante existentes. Y además indicar si el evento es gratis o requiere una Cuota de Participación. En caso de ser gratis deberá completar la Cuota de Participación con cero (0). Cuando el formulario esté completo presionar el botón Registrar Evento. Luego verá una lista de eventos registrados y al final de la lista el evento recientemente registrado. 
         - Atrás. El usuario podrá presionar el Botón Atrás para volver al formulario de registro de evento.
-    - Eventos Registrados. Para consultar los eventos existentes deberá presionar el botón Eventos Registrads.
+    - Eventos Registrados. Para consultar los eventos existentes deberá presionar el botón Eventos Registrados.
         - Atrás. El usuario podrá presionar el Botón Atrás para volver al formulario de registro de evento.
 
 - Nombre de Usuario. El Usuario verá su nombre de USUARIO en LETRAS MAYÚSCULAS para saber que se encuentra conectado.
