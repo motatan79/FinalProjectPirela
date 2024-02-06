@@ -13,7 +13,7 @@ KIDDO SWAPP
 Es una app de intercambio de ropa de segunda mano para niños, con presencia en Latinoamérica. 
 
 ## Extraer el contenido desde el siguiente repositorio en git con el siguiente comando
-git clone https://github.com/motatan79/TuPrimeraPaginaPirela.git
+git clone https://github.com/motatan79/FinalProjectPirela.git
 
 ## Para ingresar al proyecto se debe crear un ambiente virtual en la terminal
 - python -m venv .venv (Windows)
