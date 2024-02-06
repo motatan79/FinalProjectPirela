@@ -76,7 +76,7 @@ El usuario conectado a la app, con nombre y contraseña, además de visualizar s
 
 - Logout. El usuario podrá presionar el Botón Logout para cerrar la sesión y le será indicado con un mensaje que el cierre de sesión fue exitoso y la barra de navegación contendrá solamente las funcionalidades descritas al inicio para un usuario no conectado. Además el usuario podrá presionar sobre el mensaje "Ingresa de nuevo" para redirigirlo a la pantalla a la url de login. 
 
-## USUARIO ACCEDE CON SU CREDENCIALES DE ADMINISTRADOR. 
+## USUARIO ACCEDE CON CREDENCIALES DE ADMINISTRADOR. 
 ## Creación, actualización y eliminación de usuarios usando clases propias de Django
 Los usuarios que accedan con credenciales de administrador, en la página de inicio tendrán las mismas funcionalidades que los usuarios conectados a la app. 
 Así como todo las funcionalidades de la barra de navegación (crear perfiles, tiendas, países y eventos) y la barra de búsqueda de tienda, descritas en el apartado anterior.
