@@ -1,5 +1,6 @@
 # Proyecto Final Coder House - Python Flex
 Comisión: 56060.
+
 Creador: Pirela, Moises.
 ## Nombre del Proyecto
 KIDDO SWAPP 
@@ -30,10 +31,10 @@ pip install django
 python manage.py runserver
 
 ## En la página inicio (Usuario sin sesión activa)
-En la página de inicio, esquina superior izquierda, al pulsar sobre el nombre de APP siempre retornará a la página de Inicio, al igual que al pulsar la palabra INICIO en la barra de navegación. 
-En la barra de navegación al pulsar la Palabra Nosotros, llevará al usuario a información relacionada con Kiddo Swapp. Para retornar al inicio puede pulsar sobre el nombre de la app o la palabra INICIO.
-El botón Whatsapp, llevará al usuario a la app de Whatsapp y podrá comenzar a interactuar con nuestro equipo. 
-En la página de inicio, en la esquina inferior izquierda al pulsar las palabras "Servicios" o "Contáctanos", se obtienen información relacionada con la Kiddo Swapp. 
+- En la página de inicio, esquina superior izquierda, al pulsar sobre el nombre de APP siempre retornará a la página de Inicio, al igual que al pulsar la palabra INICIO en la barra de navegación. 
+- En la barra de navegación al pulsar la Palabra Nosotros, llevará al usuario a información relacionada con Kiddo Swapp. Para retornar al inicio puede pulsar sobre el nombre de la app o la palabra INICIO.
+- El botón Whatsapp, llevará al usuario a la app de Whatsapp y podrá comenzar a interactuar con nuestro equipo. 
+- En la página de inicio, en la esquina inferior izquierda al pulsar las palabras "Servicios" o "Contáctanos", se obtienen información relacionada con la Kiddo Swapp. 
 
 ## Para realizar la búsqueda de información en la base de datos (Buscar Tienda).
 En la Pantalla Inicio, al colocar el nombre de una tienda y presionar el botón "Buscar Tienda". Esto llevará al usuario a otro url donde le indicará la existencia o no de la tienda, y en caso de encontrarse en la base de datos mostrará información adicional relacionada con ciudad y descripción de la activdad de la tienda. 
@@ -101,3 +102,6 @@ Otro privilegio exclusivo del administrador será actualizar y eliminar perfiles
         - Registrar. El usuario podrá completar su perfil, rellenando el formulario y presionando el Botón Registrar. El Botón Registrar llevará al usuario a la página anterior pero en este caso en la lista de Swappers podrá ver al final de la lista su usuario.
         - Cancelar. En caso de presionar el Botón Cancelar, se redirigira al inicio. 
     - Atrás. El usuario podrá presionar el Botón Atrás para volver a la página inicio.
+ 
+## Video Demostración
+https://youtu.be/o_wWXDTXg6M
